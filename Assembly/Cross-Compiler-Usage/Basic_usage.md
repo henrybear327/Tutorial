@@ -10,8 +10,11 @@
 
 # 編譯
  
-cross-compiler的執行檔位在你解壓縮出來的資料夾裡面的`bin`資料夾，所以不管是要用assembler或是gcc，都要先進
-到這個`bin`資料夾裡面，才能繼續操作。
+cross-compiler的執行檔位在你解壓縮出來的資料夾裡面的`bin`資料夾，總共3種方法可以呼叫compiler。
+
+### 方法一(最麻煩的)
+
+不管是要用assembler或是gcc，都要先進到這個`bin`資料夾裡面，才能繼續操作。
 ![cd to bin](https://github.com/henrybear327/Tutorial/blob/cross-compiler-usage/Assembly/Cross-Compiler-Usage/Screenshot/new%20cd%20to%20bin.png)
 
 呼叫assembler和gcc的方式都是一樣的，當你已經在bin資料夾時，你就直接打
@@ -20,7 +23,7 @@ cross-compiler的執行檔位在你解壓縮出來的資料夾裡面的`bin`資�
 ./arm-elf-gcc 要編譯的檔案位置+檔名 -o 要輸出的檔案位置+檔名
 ```
 
-所以說，假設我要用assembler編譯一個存在桌面上的檔案`hw1.s`，並且希望要編譯成`hw1.o`並且也存在桌面上，就打
+所以說，假設要用assembler編譯一個存在桌面上的檔案`hw1.s`，並且希望要編譯成`hw1.o`並且也存在桌面上，就打
 ```
 ./arm-elf-as ../../hw1.s -o ../../hw1.o
 ```
@@ -36,3 +39,18 @@ cross-compiler的執行檔位在你解壓縮出來的資料夾裡面的`bin`資�
 
 非常不建議這樣的原因: 雖然指令很短很easy，但是畢竟未來程式一多起來，你的bin資料夾會很亂，
 所以強烈建議不要用這個偷懶法，而是要把你的原始碼放在別的地方，再用指定路徑的方式去找到他!
+
+### 方法二
+
+假設你的compiler放在`~/Desktop/con/bin`中，要編譯的檔案`hw1.s`是在桌面的話，你可以再開terminal
+並且`cd`到桌面，並下指令
+```
+./con/bin/arm-elf-gcc hw1.s -o hw1.exe
+```
+這樣一樣可以達到效果!
+
+### 方法三
+
+改`$PATH`變數! 一勞永逸!
+
+開啟terminal，

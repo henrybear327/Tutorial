@@ -5,7 +5,6 @@
 (類似app store)去安裝`gcin`。
 
 順帶提一下，安裝完gcin之後，老師所編譯的64-bit insight就**可以**改memory和register的數值囉！
-(感謝黃鈺程大大提供這個建議)
 
 # gcin的安裝和下載
 

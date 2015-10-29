@@ -1,6 +1,6 @@
 # 工作站開檔讀檔教學
 
-#### by: 曾俊宏
+#### by: 曾俊宏，黃鈺程
 
 這次DS Demo時應該有不少人被雷到開檔讀檔的問題，希望這兩招大家可以學起來，很方便的。
 
@@ -22,9 +22,9 @@
 ./a.out < input.txt
 ```
 
-### 方法二、`freopen()`
+### 方法二、`stdio.h` 下的 `freopen()`
 
-這方法只要在你的main()最開頭處，加上**兩行**code即可!!
+這方法只要在你的 main() 最開頭處，加上**兩行**code即可！！（當然，視需求可以只打其中任一個）
 
 `freopen()`的基本呼叫方式如下:
 ```
@@ -36,6 +36,12 @@ freopen("檔名", "r或w", stdin或stdout);
 freopen("input.txt", "r", stdin);
 freopen("output.txt", "w", stdout);
 ```
+
+第一行代表將 `stdin` 這個串流（stream）重導到 `input.txt`，我們知道我們在程式中 `scanf/getchar` 等操作都是
+從 `stdin` 這個串流中讀入資料。所以加上這行後，相當於變成我們是從 `input.txt` 裡讀入了。
+
+同理，第二行代表我們是把程式的輸出寫到 `output.txt` 裡
+（將串流 `stdout` 導向 `output.txt`，`printf/putchar` 是將內容寫到 `stdout` 這個串流）。
 
 建議你要檢查`freopen()`檔案讀寫是否成功，因為如果demo時出問題，可以很快的就知道
 是沒有讀取到該讀的檔案所造成的！
